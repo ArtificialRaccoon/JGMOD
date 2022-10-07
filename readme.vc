@@ -1,0 +1,49 @@
+MSVC specific information
+
+
+-----------
+MSVC notes
+-----------
+The MSVC support is average. Currently as of writing, Windows Allegro does
+not support looping and bidirectional samples. That means that your mods will
+not be played properly under JGMOD until the 2 types of samples is supported.
+
+This library has been tested on MSVC 5 and 6 so far.
+
+
+---------------
+Compiling JGMOD
+---------------
+This distribution is made for DJGPP compilation straight out of the box.
+You need to run 'fixmsvc.bat' first before enabling MSVC compilation.
+After that switch to jgmod\src director and run make. At the end of the
+make process, the header and library files will be automatically copied
+to appropriate directory in MSVC directory.
+
+If you want the examples to be compiled also, then switch to jgmod/examples
+directory and run make again.
+
+
+-----------
+Using JGMOD
+-----------
+Include jgmod.h after including allegro.h. For example,
+
+#include <allegro.h>
+#include <jgmod.h>
+
+
+Make sure you include jgmod.h after allegro.h. Otherwise you will get a
+error message when compiling.
+
+    For MSVC version, link libjgmod.lib before alleg.lib.
+    For example,
+
+    libjgmod.lib alleg.lib
+
+
+If you upgrade or downgrade your Allegro or JGMOD to newer or older wips or
+something, then you need to recompile JGMOD. Just type "make veryclean" to
+delete all those objects and executable files. Then type "make" to recompile.
+
+

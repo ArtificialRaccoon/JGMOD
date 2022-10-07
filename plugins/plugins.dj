@@ -1,0 +1,22 @@
+Follow the installation instruction below to play, grab, export MODs in
+grabber.exe under DJGPP
+
+
+Installation
+------------
+1.  Compile Allegro to get the liballeg.a copied to the djgpp\lib directory
+    (if you haven't done so).
+
+2.  Compile JGMOD to get the libjgmod.a copied to the djgpp\lib direcotry.
+    (if you haven't done so). 
+
+3.  Copy all the contents of this directory (jgmod\plugins) to the
+    directory of allegro\tools\plugins. If other library also have plugin
+    files, copy it as well.
+
+4   Delete plugins.h in directory allegro\obj\djgpp
+
+5.  Recompile allegro (without deleting Allegro, of course).
+
+6.  Now you can grab, play MODs in the grabber.exe. Enjoy.
+

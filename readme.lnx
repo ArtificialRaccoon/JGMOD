@@ -1,0 +1,63 @@
+Linux specific information
+
+
+-----------
+Linux Notes
+-----------
+So far, I have not yet detected any problems with the Linux version and so 
+far JGMOD plays fine on my soundcard.
+
+I do not have access to a Unix machine. Could anyone care to port it to Unix
+as well? I suspect there are not much modification is needed since Allegro
+uses the script and method of compilation for Linux and Unix.
+
+Thanks to George Foot who port JGMOD to Linux.
+
+
+---------------
+Compiling JGMOD
+---------------
+This distribution has been configured to be compiled for DJGPP out of the
+box. So you need to convert all of the text files from DOS/Windows format
+to Linux/Unix format. To do this run
+
+        sh fixunix.sh
+    or
+        chmod +x fixunix.sh; ./fixunix.sh
+
+
+Once done, you are ready to compile. Switch to /jgmod/src directory and
+type
+
+        make
+
+to start building the libraries and executables. Then to copy the header
+file and libraries to the appropriate directories, run
+
+        su -c "make install"
+
+To compile the examples, switch to /jgmod/examples and then run
+
+        make
+
+
+-----------
+Using JGMOD
+-----------
+Include jgmod.h after including allegro.h. For example,
+
+#include <allegro.h>
+#include <jgmod.h>
+
+
+Make sure you include jgmod.h after allegro.h. Otherwise you will get a
+error message when compiling.
+
+    To link with JGMOD library use the parameter     
+
+        -ljgmod `allegro-config --libs`
+
+                                           
+If you upgrade or downgrade your Allegro or JGMOD to newer or older wips or
+something, then you need to recompile JGMOD. Just type "make veryclean" to
+delete all those objects and executable files. Then type "make" to recompile.

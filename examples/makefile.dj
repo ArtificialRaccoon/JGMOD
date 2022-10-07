@@ -1,0 +1,41 @@
+####################################################
+#                                                  #
+#     JGMOD examples by Guan Foo Wah               #
+#                                                  #
+####################################################
+
+
+CFLAGS = -O3  -W -Wno-unused -Wall -mcpu=pentium -s -ffast-math -fomit-frame-pointer -ljgmod -lalleg -funroll-loops
+
+examples = ex1.exe ex2.exe ex3.exe ex4.exe ex5.exe ex6.exe ex7.exe
+
+ifneq ($(wildcard $(DJDIR)/bin/upx.exe),)
+DJP = $(DJDIR)/bin/upx.exe
+else
+ifneq ($(wildcard $(DJDIR)/bin/djp.exe),)
+DJP = $(DJDIR)/bin/djp.exe -s
+endif
+endif
+
+
+all : $(examples)
+	@echo Finished compiling. 
+	@echo To compress exes, type make compress
+
+
+%.exe: %.c
+	gcc -o $@ $< $(CFLAGS)
+
+clean :
+	del *.exe
+
+
+compress: $(examples)
+    ifneq ($(DJP),)
+	@$(DJP) $(examples)
+    else
+	@echo No executable compressor found! This target requires either the
+	@echo DJP or UPX utilities to be installed in your djgpp bin directory.
+    endif
+
+

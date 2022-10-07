@@ -1,0 +1,54 @@
+Mingw32 specific information
+
+
+-------------
+Mingw32 notes
+-------------
+The Mingw32 support is average. Currently as of writing, Windows Allegro does
+not support looping and bidirectional samples. That means that your mods will
+not be played properly under JGMOD until the 2 types of samples is supported.
+
+This library has been tested on gcc-2.95.2-msvcrt.exe with the updated
+runtime library)
+
+Thanks to Henrik Stokseth for porting JGMOD to Mingw32.
+
+
+---------------
+Compiling JGMOD
+---------------
+This distribution is made for DJGPP compilation straight out of the box.
+You need to run 'fixming.bat' first before enabling Mingw32 compilation.
+After that switch to jgmod\src director and run make. At the end of the
+make process, the header and library files will be automatically copied
+to appropriate directory in MingW32 directory. Make sure you set mingdir
+to your Mingw32 directoy first.
+
+If you want the examples to be compiled also, then switch to jgmod/examples
+directory and run make again.
+
+
+-----------
+Using JGMOD
+-----------
+Include jgmod.h after including allegro.h. For example,
+
+#include <allegro.h>
+#include <jgmod.h>
+
+
+Make sure you include jgmod.h after allegro.h. Otherwise you will get a
+error message when compiling.
+
+
+    For DJGPP/Mingw32 version, link libjgmod.a before liballeg.a.
+    For example,
+
+            -ljgmod -lalleg
+
+
+If you upgrade or downgrade your Allegro or JGMOD to newer or older wips or
+something, then you need to recompile JGMOD. Just type "make veryclean" to
+delete all those objects and executable files. Then type "make" to recompile.
+
+

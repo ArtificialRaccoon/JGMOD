@@ -1,0 +1,48 @@
+DJGPP specific information
+
+
+-----------
+DJGPP notes
+-----------
+DJGPP is where JGMOD originates from. So this this is the most stable
+compared to other platforms or compilers.
+
+
+---------------
+Compiling JGMOD
+---------------
+This distribution is ready for compilation. Just switch to jgmod/src
+directory and run 'make'. Then run 'make install' to copy all necessary
+files to DJGPP directory.
+
+If you want the examples to be compiled also, then switch to jgmod/examples
+directory and run make again.
+
+
+-----------
+Using JGMOD
+-----------
+Include jgmod.h after including allegro.h. For example,
+
+#include <allegro.h>
+#include <jgmod.h>
+
+
+Make sure you include jgmod.h after allegro.h. Otherwise you will get a
+error message when compiling.
+
+    For DJGPP/Mingw32 version, link libjgmod.a before liballeg.a.
+    For example,
+
+    -ljgmod -lalleg
+
+
+If you are using Rhide, go to the Options/Libraries menu, type 'jgmod' 
+into an empty space which is above alleg, and make sure the box next to it
+is checked.
+
+If you upgrade or downgrade your Allegro or JGMOD to newer or older wips or
+something, then you need to recompile JGMOD. Just type "make veryclean" to
+delete all those objects and executable files. Then type "make" to recompile.
+
+

@@ -1,0 +1,12 @@
+$(OBJ_DIR)/mod.o : mod.c jgmod.h port.h
+$(OBJ_DIR)/load_mod.o : load_mod.c jgmod.h port.h
+$(OBJ_DIR)/load_s3m.o : load_s3m.c jgmod.h port.h
+$(OBJ_DIR)/load_xm.o : load_xm.c jgmod.h port.h
+$(OBJ_DIR)/load_it.o : load_it.c jgmod.h port.h
+$(OBJ_DIR)/load_jgm.o : load_jgm.c jgmod.h port.h
+$(OBJ_DIR)/save_jgm.o : save_jgm.c jgmod.h port.h
+$(OBJ_DIR)/player.o : player.c jgmod.h
+$(OBJ_DIR)/player2.o : player2.c jgmod.h
+$(OBJ_DIR)/player3.o : player3.c jgmod.h
+$(OBJ_DIR)/player4.o : player4.c jgmod.h
+$(OBJ_DIR)/file_io.o : file_io.c jgmod.h port.h

@@ -1,0 +1,35 @@
+####################################################
+#                                                  #
+#     JGMOD examples by Guan Foo Wah               #
+#                                                  #
+####################################################
+
+
+CFLAGS = -O3  -W -Wno-unused -Wall -mcpu=pentium -s -ffast-math -fomit-frame-pointer -funroll-loops -ljgmod -lalleg
+
+examples = ex1.exe ex2.exe ex3.exe ex4.exe ex5.exe ex6.exe ex7.exe
+
+ifneq ($(wildcard $(MINGDIR)/bin/upx.exe),)
+DJP = $(MINGDIR)/bin/upx.exe
+endif
+
+
+all : $(examples)
+	@echo Finished compiling. 
+   
+
+
+%.exe: %.c
+	gcc -o $@ $< $(CFLAGS)
+
+clean :
+	del *.exe
+
+
+compress: $(examples)
+    ifneq ($(DJP),)
+	@$(DJP) $(examples)
+    else
+	@echo No executable compressor found! This target requires the
+	@echo UPX utilities to be installed in your mingw32 bin directory.
+    endif
