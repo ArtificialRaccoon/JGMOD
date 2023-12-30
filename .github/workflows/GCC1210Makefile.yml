@@ -32,4 +32,4 @@ jobs:
           sudo apt-get install -y libfl-dev
 
       - name: Compile JGMOD library
-        run: ./xmake.sh lib
+        run: ./xmake.sh
