@@ -9,23 +9,13 @@ INCDEST = $(DJDIR)/include
 CPLIBDEST = $(subst /,\,$(DJDIR)/lib)
 CPINCDEST = $(subst /,\,$(DJDIR)/include)
 
-OBJ_DIR = ../obj/djgpp
-
-LIB_DIR = ../lib/djgpp
+OBJ_DIR = ./obj/djgpp
+LIB_DIR = ./lib/djgpp
 LIB_NAME = $(LIB_DIR)/libjgmod.a
 
 include makefile.lst
 
 CFLAGS = -O3 -W -Wno-unused -Wall -mcpu=pentium -ffast-math -fomit-frame-pointer -funroll-loops
-
-#detect if UPX or DJP exe compressor is present
-ifneq ($(wildcard $(DJDIR)/bin/upx.exe),)
-DJP = $(DJDIR)/bin/upx.exe
-else
-ifneq ($(wildcard $(DJDIR)/bin/djp.exe),)
-DJP = $(DJDIR)/bin/djp.exe -s
-endif
-endif
 
 
 all : $(OBJ_LIST) $(LIB_NAME) jgmod.exe jgm.exe
@@ -35,9 +25,7 @@ all : $(OBJ_LIST) $(LIB_NAME) jgmod.exe jgm.exe
 	@echo To compress the exes, type make compress
 	@echo Please read readme.txt
 
-
 include ./obj/djgpp/makefile.dep
-
 
 $(OBJ_DIR)/%.o: %.c
 	gcc $(CFLAGS) -o $@ -c $<
@@ -67,12 +55,3 @@ veryclean :
 	del jgm.exe
 	del $(CPLIBDEST)\libjgmod.a 
 	del $(CPINCDEST)\jgmod.h
-
-
-compress: jgmod.exe jgm.exe
-    ifneq ($(DJP),)
-	@$(DJP) jgmod.exe jgm.exe
-    else
-	@echo No executable compressor found! This target requires either the
-	@echo DJP or UPX utilities to be installed in your djgpp bin directory.
-    endif
