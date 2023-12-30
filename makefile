@@ -36,7 +36,7 @@ all : $(OBJ_LIST) $(LIB_NAME) jgmod.exe jgm.exe
 	@echo Please read readme.txt
 
 
-include ../obj/djgpp/makefile.dep
+include ./obj/djgpp/makefile.dep
 
 
 $(OBJ_DIR)/%.o: %.c
