@@ -1,0 +1,35 @@
+name: GCC 12.1.0 - Download, Install DJGPP Toolchain, and Compile JGMOD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allow manual triggering of this workflow
+
+jobs:
+  setup-and-compile-djgpp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up directories
+        run: |
+          mkdir -p ~/djgpp
+
+      - name: Download DJGPP toolchain
+        run: |
+          curl -L https://github.com/andrewwutw/build-djgpp/releases/download/v3.3/djgpp-linux64-gcc1210.tar.bz2 -o ~/djgpp-linux64-gcc1210.tar.bz2
+
+      - name: Extract DJGPP toolchain
+        run: |
+          tar -xjf ~/djgpp-linux64-gcc1210.tar.bz2 -C ~/
+      
+      - name: Install libfl-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfl-dev
+
+      - name: Compile JGMOD library
+        run: ./xmake.sh
