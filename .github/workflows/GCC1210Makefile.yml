@@ -17,6 +17,7 @@ jobs:
       - name: Set up directories
         run: |
           mkdir -p ~/djgpp
+          mkdir -p ~/allegro
 
       - name: Download DJGPP toolchain
         run: |
@@ -37,7 +38,7 @@ jobs:
           
       - name: Extract Allegro
         run: |
-          unzip -qq ./Allegro.zip -d ./allegro
+          unzip -qq ~/Allegro.zip -d ~/allegro
 
       - name: Compile JGMOD library
         run: ./xmake.sh
