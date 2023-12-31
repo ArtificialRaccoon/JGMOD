@@ -20,7 +20,6 @@
 #define ALLEGRO_FILE_H
 
 #include "base.h"
-#include <cstdint>
 
 #ifdef __cplusplus
    extern "C" {

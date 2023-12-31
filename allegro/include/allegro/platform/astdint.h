@@ -32,13 +32,12 @@
    #ifndef ALLEGRO_GUESS_INTTYPES_OK
       #warning Guessing the definitions of fixed-width integer types.
    #endif
-   #include <cstdint>
-   //#define int8_t       signed char
-   //#define uint8_t      unsigned char
-   //#define int16_t      signed short
-   //#define uint16_t     unsigned short
-   //#define int32_t      signed int
-   //#define uint32_t     unsigned int
+   #define int8_t       signed char
+   #define uint8_t      unsigned char
+   #define int16_t      signed short
+   #define uint16_t     unsigned short
+   #define int32_t      signed int
+   #define uint32_t     unsigned int
    #define intptr_t     int32_t
    #define uintptr_t    uint32_t
 #else
