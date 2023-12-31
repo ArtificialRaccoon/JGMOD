@@ -59,7 +59,7 @@ WFLAGS = -Wall -Wno-unused
 TARGET_ARCH = -march=i386 -m80387 -mtune=pentium
 TARGET_OPTS = -O3 -funroll-loops -ffast-math -fomit-frame-pointer
 HEADERS = ./allegro/include
-ALLEGRO = ./
+ALLEGRO = ./allegro/lib/djgpp
 OFLAGS = $(TARGET_ARCH) $(TARGET_OPTS) -fgnu89-inline
 LIB_NAME = ./lib/djgpp/libjgmod.a
 
