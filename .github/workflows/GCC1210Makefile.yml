@@ -34,7 +34,7 @@ jobs:
 
       - name: Download Allegro 4.2.3.1 
         run: |
-          curl -L https://github.com/ArtificialRaccoon/allegro-4.2-xc/releases/download/Allegro-GCC1210-2023-12-27/liballeg.a -o ~/liballeg.a        
+          curl -L https://github.com/ArtificialRaccoon/allegro-4.2-xc/releases/download/Allegro-GCC1210-2023-12-27/liballeg.a -o ./liballeg.a        
 
       - name: Compile JGMOD library
         run: ./xmake.sh
