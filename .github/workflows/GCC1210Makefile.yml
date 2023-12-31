@@ -17,6 +17,7 @@ jobs:
       - name: Set up directories
         run: |
           mkdir -p ~/djgpp
+          mkdir -p ~/allegro
 
       - name: Download DJGPP toolchain
         run: |
