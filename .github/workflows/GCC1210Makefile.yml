@@ -34,11 +34,21 @@ jobs:
 
       - name: Download Allegro 4.2.3.1 
         run: |
-          curl -L https://github.com/ArtificialRaccoon/allegro-4.2-xc/releases/download/Allegro-GCC1210-2023-12-31/Allegro.zip -o ~/Allegro.zip
-          
-      - name: Extract Allegro
-        run: |
-          unzip -qq ~/Allegro.zip -d ~/allegro
+          curl -L https://github.com/ArtificialRaccoon/allegro-4.2-xc/releases/download/Allegro-GCC1210-2023-12-27/liballeg.a -o ~/allegro/lib/djgpp/liballeg.a        
 
       - name: Compile JGMOD library
         run: ./xmake.sh
+
+      - name: Zip Build
+        run: zip -r JGMOD-Build.zip .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: JGMOD-GCC1210-${{ steps.date.outputs.date }}
+          name: JGMOD-GCC1210-${{ steps.date.outputs.date }}
+          files: JGMOD-Build.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+          prerelease: false
