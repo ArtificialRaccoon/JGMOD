@@ -40,7 +40,7 @@ jobs:
         run: unzip -qq ~/allegro.zip -d ./allegro
 
       - name: Compile JGMOD library
-        run: ./dos/xmake.sh
+        run: ./xmake.sh
 
       - name: Zip Build
         run: zip -r JGMOD-Build.zip .
